@@ -1,29 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    int days=2;
+    int days=10;
     String name="ADG";
     return Scaffold(
       appBar: AppBar(
         title:
-        Center(
-          child: Text("Catalog App",
-            style:TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: Colors.deepPurple,
-            ) ,
+        Text("My App",
           ),
+      ),
+      body:Center(
+        child: Container(
+          child: Text("Welcome to day $days of flutter with $name"),
         ),
       ),
-      body: Center(
-        child: Text("welcome to day $days of flutter with $name"),
-      ),
-      drawer: Drawer(
+      drawer: MyDrawer(
       ),
     );
   }
