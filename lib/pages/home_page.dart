@@ -28,13 +28,17 @@ class _HomePageState extends State<HomePage> {
         Text("My App",
           ),
       ),
-      body:ListView.builder(
+      body:(CatalogModel.Items!=null && CatalogModel.Items.isNotEmpty)? ListView.builder(
         itemCount: CatalogModel.Items.length,
         itemBuilder: (context, index) {
           return ItemWidget(
               item:CatalogModel.Items[index]
           );
         },
+      ): Center(
+        child: CircularProgressIndicator(
+
+        ),
       ),
       drawer: MyDrawer(
       ),
@@ -42,8 +46,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> loadData() async {
+    await Future.delayed(Duration(seconds: 1));
     var catalogJson=await rootBundle.loadString("assets/files/catalog.json");
     var decodedData=jsonDecode(catalogJson)["products"];
-    print(decodedData);
+    CatalogModel.Items=List.from(decodedData).map((item) => Item.fromMap(item)).toList();
+    setState(() {});
   }
 }
