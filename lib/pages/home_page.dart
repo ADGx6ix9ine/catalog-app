@@ -1,26 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
+import 'package:my_app/models/catalog.dart';
 import 'package:my_app/pages/widgets/drawer.dart';
+import 'package:my_app/pages/widgets/item_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    int days=10;
-    String name="ADG";
     return Scaffold(
       appBar: AppBar(
         title:
         Text("My App",
           ),
       ),
-      body:Center(
-        child: Container(
-          child: Text("Welcome to day $days of flutter with $name"),
-        ),
+      body:ListView.builder(
+        itemCount: CatalogModel.Items.length,
+        itemBuilder: (context, index) {
+          return ItemWidget(
+              item:CatalogModel.Items[index]
+          );
+        },
       ),
       drawer: MyDrawer(
       ),
     );
+  }
+
+  Future<void> loadData() async {
+    var catalogJson=await rootBundle.loadString("assets/files/catalog.json");
+    var decodedData=jsonDecode(catalogJson)["products"];
+    print(decodedData);
   }
 }

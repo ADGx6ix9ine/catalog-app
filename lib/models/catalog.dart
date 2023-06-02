@@ -1,5 +1,20 @@
+class CatalogModel{
+  static final Items=[
+    Item(
+        image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-blue-hero?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1604021661000",
+        id: 1,
+        name: "iPhone 12 Pro",
+        price: 999,
+        desc: "Apple iPhone 12th generation",
+        color: "#33505a"
+    )
+  ];
+}
+
+
+
 class Item{
-  final String id;
+  final int id;
   final String name;
   final num price;
   final String desc;
@@ -9,13 +24,3 @@ class Item{
   Item({required this.image, required this.id, required this.name, required this.price, required this.desc, required this.color});
 }
 
-final products=[
- Item(
-     image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.smartcellular.in%2Fapple-iphone-12-pro-max-128-gb-unlocked-gold-condition-pristine-4&psig=AOvVaw0XAYghRmAuPNq2qMVzsn5d&ust=1682774627353000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKjKjZHWzP4CFQAAAAAdAAAAABAL",
-     id: "ADG",
-     name: "Iphone 12 Pro",
-     price: 69000,
-     desc: "12th gen Iphone",
-     color: "33505a",
- )
-];
