@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/models/catalog.dart';
+import 'package:my_app/pages/home_detail_page.dart';
 
 class ItemWidget extends StatelessWidget {
   final Item item;
@@ -14,7 +15,11 @@ class ItemWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: InkWell(
           onTap: () {
-            print("pressed on ${item.name}");
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeDetailsPage(catalog: item),
+                ));
           },
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -23,7 +28,10 @@ class ItemWidget extends StatelessWidget {
                 SizedBox(
                   width: 100,
                   height: 100,
-                  child: Image.network(item.image),
+                  child: Hero(
+                    child: Image.network(item.image),
+                    tag: item.id,
+                  ),
                 ),
                 Flexible(
                   child: Container(
@@ -40,6 +48,7 @@ class ItemWidget extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
+                            textAlign: TextAlign.center,
                             item.desc,
                             style: TextStyle(fontSize: 12),
                           ),
@@ -49,7 +58,9 @@ class ItemWidget extends StatelessWidget {
                           children: [
                             Text(
                               "\$${item.price}",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red),
                             ),
                             InkWell(
                               child: Icon(
@@ -66,6 +77,8 @@ class ItemWidget extends StatelessWidget {
                               },
                               child: Text("Buy"),
                               style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll(Colors.blueGrey),
                                   shape: MaterialStatePropertyAll(
                                       RoundedRectangleBorder(
                                           borderRadius:

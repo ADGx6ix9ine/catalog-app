@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:my_app/models/catalog.dart';
 import 'package:my_app/pages/widgets/drawer.dart';
 import 'package:my_app/pages/widgets/item_widget.dart';
+import 'package:my_app/pages/widgets/themes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: MyTheme.creamColor,
         title: Text(
           "Catalog App",
         ),
