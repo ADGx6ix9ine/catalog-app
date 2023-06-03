@@ -12,7 +12,9 @@ class MyTheme {
       appBarTheme: AppBarTheme(
         color: Colors.white,
         elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.black), toolbarTextStyle: Theme.of(context).textTheme.bodyText2, titleTextStyle: Theme.of(context).textTheme.headline6,
+        iconTheme: IconThemeData(color: Colors.black),
+        toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
+        titleTextStyle: Theme.of(context).textTheme.headline6,
       ));
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
@@ -24,13 +26,21 @@ class MyTheme {
       appBarTheme: AppBarTheme(
         color: Colors.black,
         elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.white), toolbarTextStyle: Theme.of(context).textTheme.copyWith(
-          headline6:
-          context.textTheme.headline6!.copyWith(color: Colors.white),
-        ).bodyText2, titleTextStyle: Theme.of(context).textTheme.copyWith(
-          headline6:
-          context.textTheme.headline6!.copyWith(color: Colors.white),
-        ).headline6,
+        iconTheme: IconThemeData(color: Colors.white),
+        toolbarTextStyle: Theme.of(context)
+            .textTheme
+            .copyWith(
+              headline6:
+                  context.textTheme.headline6!.copyWith(color: Colors.white),
+            )
+            .bodyText2,
+        titleTextStyle: Theme.of(context)
+            .textTheme
+            .copyWith(
+              headline6:
+                  context.textTheme.headline6!.copyWith(color: Colors.white),
+            )
+            .headline6,
       ));
 
   //Colors

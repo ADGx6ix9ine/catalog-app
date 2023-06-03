@@ -13,7 +13,6 @@ class _LoginPageState extends State<LoginPage> {
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
 
-
   moveToHome(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       setState(() {
@@ -27,7 +26,6 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -37,33 +35,32 @@ class _LoginPageState extends State<LoginPage> {
           key: _formKey,
           child: Column(
             children: [
-              Image.asset("assets/images/login_page.png",
-                fit: BoxFit.cover,),
+              Image.asset(
+                "assets/images/login_page.png",
+                fit: BoxFit.cover,
+              ),
               SizedBox(
                 height: 40,
-                child: Text("MY APP",
-                  style: TextStyle(
-                      fontSize: 25
-                  ),
+                child: Text(
+                  "MY APP",
+                  style: TextStyle(fontSize: 25),
                 ),
               ),
-              Text("Welcome $name!",
+              Text(
+                "Welcome $name!",
                 style: TextStyle(
                     color: Colors.blueAccent,
                     fontWeight: FontWeight.w300,
-                    fontSize: 30
-                ),
+                    fontSize: 30),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 16, horizontal: 32),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
                 child: Column(
                   children: [
                     TextFormField(
                       decoration: InputDecoration(
-                          hintText: "Enter Username",
-                          labelText: "Username"
-                      ),
+                          hintText: "Enter Username", labelText: "Username"),
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "username cannot be empty";
@@ -73,9 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       onChanged: (value) {
                         name = value;
-                        setState(() {
-
-                        });
+                        setState(() {});
                       },
                     ),
                     TextFormField(
@@ -84,44 +79,43 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Enter Password",
                         labelText: "Password",
                       ),
-                      validator:(value) {
+                      validator: (value) {
                         if (value!.isEmpty) {
                           return "password cannot be empty";
-                        }
-                        else if (value.length < 6) {
+                        } else if (value.length < 6) {
                           return "password length should be atleast 6";
                         }
                         return null;
                       },
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Material(
-                      borderRadius: BorderRadius.circular(
-                          changeButton ? 50 : 10),
+                      borderRadius:
+                          BorderRadius.circular(changeButton ? 50 : 10),
                       color: Colors.deepPurple,
                       child: InkWell(
                         splashColor: Colors.deepOrange,
                         onTap: () => moveToHome(context),
-
                         child: AnimatedContainer(
                           duration: Duration(seconds: 1),
                           width: changeButton ? 50 : 150,
                           height: 50,
                           alignment: Alignment.center,
-                          child:
-                          changeButton ? Icon(Icons.done) : Text("Login",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          ),
-
-
+                          child: changeButton
+                              ? Icon(Icons.done)
+                              : Text(
+                                  "Login",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                  ),
+                                ),
                         ),
                       ),
                     )
-
                   ],
                 ),
               )

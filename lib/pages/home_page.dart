@@ -13,7 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -24,32 +23,30 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-        Text("My App",
-          ),
-      ),
-      body:(CatalogModel.Items!=null && CatalogModel.Items.isNotEmpty)? ListView.builder(
-        itemCount: CatalogModel.Items.length,
-        itemBuilder: (context, index) {
-          return ItemWidget(
-              item:CatalogModel.Items[index]
-          );
-        },
-      ): Center(
-        child: CircularProgressIndicator(
-
+        title: Text(
+          "Catalog App",
         ),
       ),
-      drawer: MyDrawer(
-      ),
+      body: (CatalogModel.Items.isNotEmpty)
+          ? ListView.builder(
+              itemCount: CatalogModel.Items.length,
+              itemBuilder: (context, index) {
+                return ItemWidget(item: CatalogModel.Items[index]);
+              },
+            )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),
+      drawer: MyDrawer(),
     );
   }
 
   Future<void> loadData() async {
     await Future.delayed(Duration(seconds: 1));
-    var catalogJson=await rootBundle.loadString("assets/files/catalog.json");
-    var decodedData=jsonDecode(catalogJson)["products"];
-    CatalogModel.Items=List.from(decodedData).map((item) => Item.fromMap(item)).toList();
+    var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
+    var decodedData = jsonDecode(catalogJson)["products"];
+    CatalogModel.Items =
+        List.from(decodedData).map((item) => Item.fromMap(item)).toList();
     setState(() {});
   }
 }
