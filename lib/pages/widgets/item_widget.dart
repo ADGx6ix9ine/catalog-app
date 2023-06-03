@@ -29,46 +29,54 @@ class ItemWidget extends StatelessWidget {
                   child: Container(
                     child: Column(
                       children: [
-                        Text(
-                          item.name,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            item.name,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(item.desc, textAlign: TextAlign.left,style: TextStyle(fontSize: 12),),
+                          child: Text(
+                            item.desc,
+                            style: TextStyle(fontSize: 12),
+                          ),
                         ),
                         ButtonBar(
                           alignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            Text(
+                              "\$${item.price}",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              child: Icon(
+                                Icons.add_shopping_cart,
+                                size: 30,
+                              ),
+                              onTap: () {
+                                print("pressed on add to cart");
+                              },
+                            ),
                             ElevatedButton(
                               onPressed: () {
                                 print("pressed on Buy");
                               },
                               child: Text("Buy"),
+                              style: ButtonStyle(
+                                  shape: MaterialStatePropertyAll(
+                                      RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15)))),
                             ),
-                            InkWell(
-                              child: Icon(
-                                Icons.add_shopping_cart,size: 30,
-                              ),
-                              onTap: () {
-                                print("pressed on add to cart");
-                              },
-                            )
                           ],
                         )
                       ],
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text(
-                    "\$${item.price}",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                )
               ],
             ),
           ),
