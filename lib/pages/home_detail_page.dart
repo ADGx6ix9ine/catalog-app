@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/models/catalog.dart';
 import 'package:my_app/pages/widgets/themes.dart';
@@ -11,6 +12,11 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blueGrey,
+        onPressed: () {},
+        child: Icon(Icons.add_shopping_cart),
+      ),
       appBar: AppBar(
         backgroundColor: MyTheme.creamColor,
       ),
@@ -31,27 +37,14 @@ class HomeDetailsPage extends StatelessWidget {
         ),
       ),
       bottomSheet: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 16 ),
+        padding: const EdgeInsets.only(left: 8, right: 8, bottom: 16, top: 32),
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "\$${catalog.price}",
-              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red,fontSize: 30),
-            ),
-            InkWell(
-              child: Column(
-                children: [
-                  Icon(
-                    Icons.add_shopping_cart,
-                    size: 30,
-                  ),
-                  Text("Add to Card")
-                ],
-              ).h(51),
-              onTap: () {
-                print("pressed on add to cart");
-              },
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, color: Colors.red, fontSize: 30),
             ),
             ElevatedButton(
               onPressed: () {
@@ -59,7 +52,7 @@ class HomeDetailsPage extends StatelessWidget {
               },
               child: Text("Buy"),
               style: ButtonStyle(
-                fixedSize: MaterialStatePropertyAll(Size.fromWidth(90)),
+                  fixedSize: MaterialStatePropertyAll(Size.fromWidth(90)),
                   backgroundColor: MaterialStatePropertyAll(Colors.blueGrey),
                   shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)))),

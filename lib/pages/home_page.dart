@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -5,6 +6,7 @@ import 'package:my_app/models/catalog.dart';
 import 'package:my_app/pages/widgets/drawer.dart';
 import 'package:my_app/pages/widgets/item_widget.dart';
 import 'package:my_app/pages/widgets/themes.dart';
+import 'package:my_app/util/routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,17 +25,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blueGrey,
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+        child: Icon(CupertinoIcons.cart),
+      ),
       appBar: AppBar(
         backgroundColor: MyTheme.creamColor,
-        title: Text(
-          "Catalog App",
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 65.0),
+          child: Text(
+            "Catalog App",
+          ),
         ),
       ),
       body: (CatalogModel.Items.isNotEmpty)
           ? ListView.builder(
               itemCount: CatalogModel.Items.length,
               itemBuilder: (context, index) {
-                return ItemWidget(item: CatalogModel.Items[index]);
+                return ItemWidget(item: CatalogModel.getBypos(index));
               },
             )
           : Center(
