@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 40,
                 child: Text(
-                  "MY APP",
+                  "CATALOG APP",
                   style: TextStyle(fontSize: 25),
                 ),
               ),
