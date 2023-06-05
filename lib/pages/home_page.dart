@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
           ? ListView.builder(
               itemCount: CatalogModel.Items.length,
               itemBuilder: (context, index) {
-                return ItemWidget(item: CatalogModel.getBypos(index));
+                return ItemWidget(item: CatalogModel.Items[index]);
               },
             )
           : Center(

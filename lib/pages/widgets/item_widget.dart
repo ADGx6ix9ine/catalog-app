@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/models/catalog.dart';
 import 'package:my_app/pages/home_detail_page.dart';
+import 'package:my_app/pages/widgets/add_to_cart.dart';
 
 class ItemWidget extends StatelessWidget {
   final Item item;
@@ -62,18 +63,13 @@ class ItemWidget extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                   color: Colors.red),
                             ),
-                            InkWell(
-                              child: Icon(
-                                Icons.add_shopping_cart,
-                                size: 30,
-                              ),
-                              onTap: () {
-                                print("pressed on add to cart");
-                              },
-                            ),
+                            AddToCart(catalog: item,),
                             ElevatedButton(
                               onPressed: () {
-                                print("pressed on Buy");
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content:
+                                            Text("Buying not supported yet")));
                               },
                               child: Text("Buy"),
                               style: ButtonStyle(
@@ -98,3 +94,4 @@ class ItemWidget extends StatelessWidget {
     );
   }
 }
+

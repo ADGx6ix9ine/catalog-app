@@ -1,22 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/models/catalog.dart';
+import 'package:my_app/pages/widgets/add_to_cart.dart';
 import 'package:my_app/pages/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class HomeDetailsPage extends StatelessWidget {
+class HomeDetailsPage extends StatefulWidget {
   final Item catalog;
 
   const HomeDetailsPage({super.key, required this.catalog});
 
   @override
+  State<HomeDetailsPage> createState() => _HomeDetailsPageState();
+}
+
+class _HomeDetailsPageState extends State<HomeDetailsPage> {
+
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blueGrey,
-        onPressed: () {},
-        child: Icon(Icons.add_shopping_cart),
-      ),
+      floatingActionButton: AddToCart(catalog: widget.catalog),
       appBar: AppBar(
         backgroundColor: MyTheme.creamColor,
       ),
@@ -25,14 +29,15 @@ class HomeDetailsPage extends StatelessWidget {
         child: Column(
           children: [
             Hero(
-              child: Image.network(catalog.image).h32(context).centered(),
-              tag: catalog.id,
+              child:
+                  Image.network(widget.catalog.image).h32(context).centered(),
+              tag: widget.catalog.id,
             ),
             Text(
-              catalog.name,
+              widget.catalog.name,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ).p16(),
-            Text(catalog.desc)
+            Text(widget.catalog.desc)
           ],
         ),
       ),
@@ -42,13 +47,14 @@ class HomeDetailsPage extends StatelessWidget {
           alignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "\$${catalog.price}",
+              "\$${widget.catalog.price}",
               style: TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.red, fontSize: 30),
             ),
             ElevatedButton(
               onPressed: () {
-                print("pressed on Buy");
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Buying not supported yet")));
               },
               child: Text("Buy"),
               style: ButtonStyle(
