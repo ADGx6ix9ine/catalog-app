@@ -1,23 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart'
     show
-        AppBarTheme,
         BuildContext,
         Colors,
         Key,
         MaterialApp,
         StatelessWidget,
-        ThemeData,
         Widget,
         runApp;
 import 'package:flutter/services.dart';
-import 'package:my_app/models/catalog.dart';
 import 'package:my_app/pages/cart_page.dart';
-import 'package:my_app/pages/home_detail_page.dart';
 import 'package:my_app/pages/home_page.dart';
 import 'package:my_app/pages/login_page.dart';
 import 'package:my_app/pages/widgets/themes.dart';
 import 'package:my_app/util/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 void main() {
   runApp(myApp());
