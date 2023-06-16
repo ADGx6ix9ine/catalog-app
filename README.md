@@ -4,13 +4,13 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://github.com/lordADG/catalog-app/blob/main/screenshots/WhatsApp%20Image%202023-06-09%20at%206.48.50%20PM%20(1).jpeg" alt="project-screenshot" width="400" height="400/">
+<img src="https://github.com/lordADG/catalog-app/blob/main/screenshots/WhatsApp%20Image%202023-06-09%20at%206.48.50%20PM%20(1).jpeg" alt="project-screenshot"  height="400/">
 
-<img src="https://github.com/lordADG/catalog-app/blob/main/screenshots/WhatsApp%20Image%202023-06-09%20at%206.48.50%20PM.jpeg" alt="project-screenshot" width="400" height="400/">
+<img src="https://github.com/lordADG/catalog-app/blob/main/screenshots/WhatsApp%20Image%202023-06-09%20at%206.48.50%20PM.jpeg" alt="project-screenshot"  height="400/">
 
-<img src="https://github.com/lordADG/catalog-app/blob/main/screenshots/WhatsApp%20Image%202023-06-09%20at%206.48.51%20PM%20(1).jpeg" alt="project-screenshot" width="400" height="400/">
+<img src="https://github.com/lordADG/catalog-app/blob/main/screenshots/WhatsApp%20Image%202023-06-09%20at%206.48.51%20PM%20(1).jpeg" alt="project-screenshot"  height="400/">
 
-<img src="https://github.com/lordADG/catalog-app/blob/main/screenshots/WhatsApp%20Image%202023-06-09%20at%206.48.51%20PM.jpeg" alt="project-screenshot" width="400" height="400/">
+<img src="https://github.com/lordADG/catalog-app/blob/main/screenshots/WhatsApp%20Image%202023-06-09%20at%206.48.51%20PM.jpeg" alt="project-screenshot"  height="400/">
 
   
   
